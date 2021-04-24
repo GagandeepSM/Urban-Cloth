@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shop for Men</title>
+</head>
+<body>
+		{% extends "layout.html" %}
+		
+		{% block content %}
+		
+			<!-- products category -->
+			{% for post in posts %}
+				<form action="" method="POST">
+					<div class="card-deck col-8">
+					  <div class="card">
+					    <img class="card-img-top" src="..." alt="Card image cap">
+					    
+					    <div class="card-body">
+					      <h5 class="card-title">{{ post.brand }}</h5>
+					      {% form.brand = post.brand %}
+					      <p class="card-text">{{ post.product_name }}</p>
+					      {% form.name = post.product_name %}
+					    </div>
+
+					    <div class="card-footer">			      
+					      {{ form.submit(class="btn btn-outline-info")
+					      <small class="text-muted ml-auto">{{ post.price }}</small>
+					    </div>
+					  </div>			
+					</div>
+				</form>
+			{% endfor %}
+			<!-- end products category -->
+			
+		<div class="col-4"></div>
+		{% endblock content %}
+</body>
+</html>
