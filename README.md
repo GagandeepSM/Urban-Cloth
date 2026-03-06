@@ -19,7 +19,13 @@ A confectionary store web application built with Django and Bulma CSS. Users can
 
 ## Screenshots
 
-> _Add screenshots here_
+| Home | Products |
+|------|----------|
+| ![Home](screenshots/home.png) | ![Products](screenshots/products.png) |
+
+| Contact | Login | Register |
+|---------|-------|----------|
+| ![Contact](screenshots/contact.png) | ![Login](screenshots/login.png) | ![Register](screenshots/register.png) |
 
 ## Getting Started
 
