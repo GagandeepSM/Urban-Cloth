@@ -1,0 +1,14 @@
+{% extends "sweets/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container">
+      <div class="media">
+        <!-- <img class="rounded-circle account-img" src="{{ user.profile.image.url }}"> -->
+        <div class="">
+          <h2 class="title">{{ user.username }}</h2>
+          <p class="subtitle">{{ user.email }}</p>
+        </div>
+      </div>
+      <!-- FORM HERE -->
+    </div>
+{% endblock content %}

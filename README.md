@@ -1,67 +1,64 @@
-# UrbanCloth
+# SweetSupply
 
-A clothing e-commerce web application built with Flask and Python.
+A confectionary store web application built with Django and Bulma CSS. Users can browse products, register/login, and submit contact enquiries.
 
 ## Features
 
-- Browse Men's and Women's clothing collections
-- Product listings with brand, name, and price
-- User registration and login with secure password hashing (bcrypt)
-- Wishlist and shopping bag (requires login)
-- Responsive UI with Bootstrap 4
-- Image carousel on the homepage
+- Product catalogue with Indian sweets and gift hampers
+- User registration, login, and profile pages
+- Contact/enquiry form with database storage
+- Responsive UI using Bulma CSS
+- Django admin panel for managing products and enquiries
 
 ## Tech Stack
 
-- **Backend:** Python, Flask, Flask-SQLAlchemy, Flask-Login, Flask-Bcrypt, Flask-WTF
-- **Frontend:** HTML5, Bootstrap 4, CSS3
+- **Backend:** Python 3, Django 4.1
+- **Frontend:** Bulma CSS, Django Templates
 - **Database:** SQLite
+- **Forms:** django-crispy-forms with crispy-bulma
 
 ## Screenshots
 
-<!-- Add screenshots here -->
-| Home Page | Men's Collection | Women's Collection |
-|-----------|-----------------|-------------------|
-| ![Home](screenshots/home.png) | ![Men](screenshots/men.png) | ![Women](screenshots/women.png) |
+> _Add screenshots here_
 
-| Login | Register |
-|-------|----------|
-| ![Login](screenshots/login.png) | ![Register](screenshots/register.png) |
-
-## Setup & Run
+## Getting Started
 
 ```bash
-# Clone the repository
+# Clone the repo
 git clone https://github.com/GagandeepSM/Urban-Cloth.git
 cd Urban-Cloth
 
-# Create a virtual environment and activate it
-python -m venv venv
-source venv/bin/activate       # On Windows: venv\Scripts\activate
+# Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the app
-cd "Clothing e-commerce"
-python home.py
+# Apply migrations
+python manage.py migrate
+
+# Create a superuser (optional, for admin access)
+python manage.py createsuperuser
+
+# Run the development server
+python manage.py runserver
 ```
 
-Open your browser at `http://127.0.0.1:5000`
+Open `http://127.0.0.1:8000` in your browser.
 
 ## Project Structure
 
 ```
-Urban-Cloth/
-├── Clothing e-commerce/
-│   ├── home.py                  # App entry point
-│   └── urbancloth/
-│       ├── __init__.py          # App factory & config
-│       ├── routes.py            # URL routes & view functions
-│       ├── models.py            # Database models (User, Post)
-│       ├── forms.py             # WTForms (Login, Register, Bag)
-│       ├── static/              # Images & CSS
-│       └── templates/           # Jinja2 HTML templates
-├── requirements.txt
-└── README.md
+SweetSupply/
+├── SweetSupply/       # Project config (settings, urls, wsgi)
+├── sweets/            # Main app — views, models, templates
+│   └── templates/sweets/
+│       ├── base.html
+│       ├── sweets.html    # Homepage
+│       ├── products.html  # Product catalogue
+│       └── contact.html   # Contact form
+├── users/             # Auth app — register, login, profile
+├── manage.py
+└── requirements.txt
 ```

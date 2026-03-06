@@ -1,0 +1,107 @@
+{% extends 'sweets/base.html' %}
+
+{% block content %}
+
+<section class="hero is-primary is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title is-1">Taste the Tradition</p>
+      <p class="subtitle is-4">India's finest sweets, handcrafted fresh every day.</p>
+      <a class="button is-light is-medium" href="{% url 'products' %}">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title has-text-centered">Why SweetSupply?</h2>
+    <p class="subtitle has-text-centered has-text-grey">We bring authentic flavours straight to your doorstep.</p>
+    <div class="columns is-centered mt-4">
+      <div class="column is-3 has-text-centered">
+        <p class="title is-5">Fresh Daily</p>
+        <p class="has-text-grey">Made fresh every morning using traditional recipes and the finest ingredients.</p>
+      </div>
+      <div class="column is-3 has-text-centered">
+        <p class="title is-5">Pan-India Delivery</p>
+        <p class="has-text-grey">We deliver to over 500 cities. Your favourite sweets, wherever you are.</p>
+      </div>
+      <div class="column is-3 has-text-centered">
+        <p class="title is-5">Gift Hampers</p>
+        <p class="has-text-grey">Beautifully packed hampers for festivals, weddings, and every occasion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-background-light">
+  <div class="container">
+    <h2 class="title has-text-centered">Browse Categories</h2>
+    <div class="columns is-multiline is-centered mt-4">
+      <div class="column is-2">
+        <div class="card has-text-centered">
+          <div class="card-content">
+            <p class="title is-6">Sweets</p>
+            <p class="has-text-grey is-size-7">Kaju Katli, Ladoo &amp; more</p>
+          </div>
+          <footer class="card-footer">
+            <a href="{% url 'products' %}" class="card-footer-item">Browse</a>
+          </footer>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="card has-text-centered">
+          <div class="card-content">
+            <p class="title is-6">Bakery</p>
+            <p class="has-text-grey is-size-7">Cookies, Cakes &amp; Pastries</p>
+          </div>
+          <footer class="card-footer">
+            <a href="{% url 'products' %}" class="card-footer-item">Browse</a>
+          </footer>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="card has-text-centered">
+          <div class="card-content">
+            <p class="title is-6">Namkeen</p>
+            <p class="has-text-grey is-size-7">Chakli, Mathri &amp; more</p>
+          </div>
+          <footer class="card-footer">
+            <a href="{% url 'products' %}" class="card-footer-item">Browse</a>
+          </footer>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="card has-text-centered">
+          <div class="card-content">
+            <p class="title is-6">Drinks</p>
+            <p class="has-text-grey is-size-7">Sharbat, Lassi &amp; more</p>
+          </div>
+          <footer class="card-footer">
+            <a href="{% url 'products' %}" class="card-footer-item">Browse</a>
+          </footer>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="card has-text-centered">
+          <div class="card-content">
+            <p class="title is-6">Gift Hampers</p>
+            <p class="has-text-grey is-size-7">Festive &amp; Custom Boxes</p>
+          </div>
+          <footer class="card-footer">
+            <a href="{% url 'products' %}" class="card-footer-item">Browse</a>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="notification is-warning is-light has-text-centered">
+      <strong>Special Offer!</strong> Shop for <strong>&#8377;1500</strong> or more and get <strong>&#8377;200 off</strong> at checkout. Use code <strong>SWEET200</strong>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

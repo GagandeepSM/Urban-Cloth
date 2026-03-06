@@ -1,0 +1,11 @@
+{% extends "sweets/base.html" %}
+{% block content %}
+<div class="container pt-3">
+    <h2 class="title">You have been logged out!</h2>
+    <div>
+        <small class="text-muted">
+            <a class="button" href="{% url 'login' %}">Log In Again</a>
+        </small>
+    </div>
+</div>
+{% endblock content %}
