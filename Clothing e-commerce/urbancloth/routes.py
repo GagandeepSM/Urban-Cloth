@@ -1,4 +1,4 @@
-  
+
 from flask import render_template, url_for, flash, redirect, request
 from urbancloth import app, db, bcrypt
 from urbancloth.forms import RegistrationForm, LoginForm, BagForm
@@ -11,37 +11,33 @@ posts = [
         'product_name' : 'Men Olive Green Solid Cotton T-shirt Regular Fit',
         'price' : '£70'
     },
-
     {
         'brand' : 'Adidas',
         'product_name' : 'Men Maroon Solid T-shirt Regular Fit',
-        'price' : '£80' 
+        'price' : '£80'
     },
-
     {
         'brand' : 'Nike',
         'product_name' : 'Men Blue Solid T-shirt Sports Fit',
-        'price' : '£90' 
+        'price' : '£90'
     }
 ]
 
-women = [
+women_posts = [
     {
         'brand' : 'H&M',
-        'product_name' : 'women Olive Green Solid Cotton T-shirt Regular Fit',
-        'price' : '70'
+        'product_name' : 'Women Olive Green Solid Cotton T-shirt Regular Fit',
+        'price' : '£70'
     },
-
     {
         'brand' : 'Adidas',
         'product_name' : 'Women Maroon Solid T-shirt Regular Fit',
-        'price' : '80' 
+        'price' : '£80'
     },
-
     {
         'brand' : 'Nike',
         'product_name' : 'Women Blue Solid T-shirt Sports Fit',
-        'price' : '90' 
+        'price' : '£90'
     }
 ]
 
@@ -49,15 +45,15 @@ women = [
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html', posts = posts )
+    return render_template('home.html', posts=posts, women_posts=women_posts)
 
 @app.route("/men")
 def men():
-    return render_template('men.html', posts = posts)
+    return render_template('men.html', posts=posts)
 
 @app.route('/women')
 def women():
-    return  render_template('women.html')   
+    return render_template('women.html', women_posts=women_posts)
 
 @app.route('/profile')
 def profile():
@@ -73,7 +69,7 @@ def wishlist():
 @login_required
 def bag():
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    return render_template('bag.html')
+    return render_template('bag.html', image_file=image_file)
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -82,10 +78,10 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username = form.username.data, email = form.email.data, password = hashed_password)
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
-        db.session.commit()       
-        flash('Your Account has been created you can now log in' , 'success')
+        db.session.commit()
+        flash('Your Account has been created you can now log in', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
@@ -117,5 +113,5 @@ def logout():
 def bag_items():
     form = BagForm()
     if form.validate_on_submit():
-        flash('Your item has been added to bag', 'success')        
-    return render_template(url_for('bag', form=form))
+        flash('Your item has been added to bag', 'success')
+    return redirect(url_for('bag'))
